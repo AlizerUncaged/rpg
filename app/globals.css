@@ -1,0 +1,1004 @@
+/* app/globals.css - Global styles for the application */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+     --primary: #00FFFF;
+     /* Electric Blue */
+     --secondary: #9D00FF;
+     /* Neon Purple */
+     --accent: #FF7700;
+     /* Neon Orange */
+     --background: #0A0A23;
+     /* Dark Navy */
+     --ui-elements: #39FF14;
+     /* Lime Green */
+}
+
+body {
+     background-color: var(--background);
+     color: white;
+     font-family: 'Share Tech Mono', monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+     font-family: 'VT323', monospace;
+}
+
+button {
+     font-family: 'Press Start 2P', cursive;
+}
+
+/* Animation classes */
+.aurora-idle {
+     animation: float 3s ease-in-out infinite;
+}
+
+.aurora-attack {
+     animation: attack 0.6s ease-in-out;
+}
+
+.aurora-defend {
+     animation: defend 0.4s ease-in-out;
+}
+
+.aurora-hack {
+     animation: hack 0.8s ease-in-out;
+}
+
+.aurora-damage {
+     animation: damage 0.4s ease-in-out;
+}
+
+.enemy-idle {
+     animation: enemy-float 3s ease-in-out infinite;
+}
+
+.enemy-attack-weak,
+.enemy-attack-medium,
+.enemy-attack-strong,
+.enemy-attack-corrupted,
+.enemy-attack-boss {
+     animation: enemy-attack 0.6s ease-in-out;
+}
+
+.enemy-damage-basic,
+.enemy-damage-glitch,
+.enemy-damage-crack,
+.enemy-damage-heavy,
+.enemy-damage-boss {
+     animation: enemy-damage 0.4s ease-in-out;
+}
+
+/* Animation keyframes */
+@keyframes float {
+
+     0%,
+     100% {
+          transform: translateY(0);
+     }
+
+     50% {
+          transform: translateY(-10px);
+     }
+}
+
+@keyframes attack {
+     0% {
+          transform: translateX(0);
+     }
+
+     25% {
+          transform: translateX(-15px) rotate(-5deg);
+     }
+
+     50% {
+          transform: translateX(30px) rotate(5deg);
+     }
+
+     75% {
+          transform: translateX(15px);
+     }
+
+     100% {
+          transform: translateX(0);
+     }
+}
+
+@keyframes defend {
+     0% {
+          transform: scale(1);
+     }
+
+     50% {
+          transform: scale(1.1);
+     }
+
+     100% {
+          transform: scale(1);
+     }
+}
+
+@keyframes hack {
+
+     0%,
+     100% {
+          filter: brightness(1);
+     }
+
+     25% {
+          filter: brightness(1.5) hue-rotate(90deg);
+     }
+
+     50% {
+          filter: brightness(1.8) hue-rotate(180deg);
+     }
+
+     75% {
+          filter: brightness(1.5) hue-rotate(270deg);
+     }
+}
+
+@keyframes damage {
+
+     0%,
+     100% {
+          transform: translateX(0);
+     }
+
+     20%,
+     60% {
+          transform: translateX(-10px);
+     }
+
+     40%,
+     80% {
+          transform: translateX(10px);
+     }
+}
+
+@keyframes enemy-float {
+
+     0%,
+     100% {
+          transform: translateY(0);
+     }
+
+     50% {
+          transform: translateY(-7px);
+     }
+}
+
+@keyframes enemy-attack {
+     0% {
+          transform: translateX(0);
+     }
+
+     50% {
+          transform: translateX(-30px);
+     }
+
+     100% {
+          transform: translateX(0);
+     }
+}
+
+@keyframes enemy-damage {
+     0% {
+          transform: translateX(0);
+          filter: brightness(1);
+     }
+
+     25% {
+          transform: translateX(10px);
+          filter: brightness(1.5);
+     }
+
+     50% {
+          transform: translateX(-7px);
+          filter: brightness(1.3);
+     }
+
+     75% {
+          transform: translateX(5px);
+          filter: brightness(1.1);
+     }
+
+     100% {
+          transform: translateX(0);
+          filter: brightness(1);
+     }
+}
+
+@keyframes glitch {
+
+     0%,
+     100% {
+          transform: translate(0);
+     }
+
+     20% {
+          transform: translate(-3px, 3px);
+     }
+
+     40% {
+          transform: translate(-3px, -3px);
+     }
+
+     60% {
+          transform: translate(3px, 3px);
+     }
+
+     80% {
+          transform: translate(3px, -3px);
+     }
+}
+
+@keyframes terminal-typing {
+     from {
+          transform: translateY(0);
+     }
+
+     to {
+          transform: translateY(-100%);
+     }
+}
+
+@keyframes terminal-flicker {
+
+     0%,
+     100% {
+          opacity: 0;
+     }
+
+     0.5% {
+          opacity: 0.1;
+     }
+
+     1% {
+          opacity: 0;
+     }
+
+     2% {
+          opacity: 0;
+     }
+
+     2.5% {
+          opacity: 0.1;
+     }
+
+     3% {
+          opacity: 0;
+     }
+
+     45% {
+          opacity: 0;
+     }
+
+     45.5% {
+          opacity: 0.1;
+     }
+
+     46% {
+          opacity: 0;
+     }
+
+     96% {
+          opacity: 0;
+     }
+
+     96.5% {
+          opacity: 0.1;
+     }
+
+     97% {
+          opacity: 0;
+     }
+}
+
+@keyframes flash {
+
+     0%,
+     100% {
+          opacity: 0;
+     }
+
+     25%,
+     75% {
+          opacity: 0.4;
+     }
+
+     50% {
+          opacity: 0.6;
+     }
+}
+
+@keyframes slide-up {
+     from {
+          transform: translateY(0);
+     }
+
+     to {
+          transform: translateY(-100%);
+     }
+}
+
+.terminal-scroll {
+     animation: terminal-typing 10s linear infinite;
+}
+
+/* Battle log styling */
+.battle-log-container {
+     scrollbar-width: thin;
+     scrollbar-color: var(--accent) var(--background);
+}
+
+.battle-log-container::-webkit-scrollbar {
+     width: 8px;
+}
+
+.battle-log-container::-webkit-scrollbar-track {
+     background: var(--background);
+}
+
+.battle-log-container::-webkit-scrollbar-thumb {
+     background-color: var(--accent);
+     border-radius: 4px;
+}
+
+@keyframes scanline {
+
+     0%,
+     100% {
+          transform: translateY(-100%);
+     }
+
+     50% {
+          transform: translateY(100%);
+     }
+}
+
+@keyframes blink {
+
+     0%,
+     100% {
+          opacity: 0;
+     }
+
+     50% {
+          opacity: 1;
+     }
+}
+
+.animate-scanline {
+     animation: scanline 8s linear infinite;
+}
+
+.animate-blink {
+     animation: blink 1s step-end infinite;
+}
+
+.shadow-glow {
+     text-shadow: 0 0 10px currentColor;
+}
+
+.bg-size-200 {
+     background-size: 100% 200%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Enhanced animation effects to add to globals.css */
+
+/* Digital rain animation for special backgrounds */
+.digital-rain {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 300%;
+     background: linear-gradient(0deg, transparent 0%, rgba(0, 255, 255, 0.2) 100%);
+     animation: rain 20s linear infinite;
+     background-image: repeating-linear-gradient(
+         0deg,
+         rgba(0, 255, 255, 0.1) 0%,
+         rgba(0, 255, 255, 0.1) 1px,
+         transparent 1px,
+         transparent 10px
+     );
+     background-size: 100% 10px;
+     opacity: 0.3;
+ }
+ 
+ @keyframes rain {
+     0% {
+         transform: translateY(-66.66%);
+     }
+     100% {
+         transform: translateY(0);
+     }
+ }
+ 
+ /* New animations for abilities */
+ .quantum-repair {
+     animation: quantum-repair 1s ease-in-out;
+ }
+ 
+ @keyframes quantum-repair {
+     0% {
+         transform: scale(1);
+         filter: brightness(1);
+     }
+     50% {
+         transform: scale(1.2);
+         filter: brightness(1.8) hue-rotate(180deg);
+     }
+     100% {
+         transform: scale(1);
+         filter: brightness(1);
+     }
+ }
+ 
+ /* Enhanced attack animations */
+ .aurora-attack-enhanced {
+     animation: attack-enhanced 0.8s ease-in-out;
+ }
+ 
+ @keyframes attack-enhanced {
+     0% {
+         transform: translateX(0);
+         filter: brightness(1);
+     }
+     20% {
+         transform: translateX(-15px) rotate(-5deg);
+         filter: brightness(1.2);
+     }
+     50% {
+         transform: translateX(40px) rotate(10deg);
+         filter: brightness(1.5) hue-rotate(30deg);
+     }
+     70% {
+         transform: translateX(20px);
+         filter: brightness(1.3);
+     }
+     100% {
+         transform: translateX(0);
+         filter: brightness(1);
+     }
+ }
+ 
+ /* Enemy animations per type */
+ .enemy-scriptKiddie-attack {
+     animation: script-kiddie-attack 0.7s ease-in-out;
+ }
+ 
+ @keyframes script-kiddie-attack {
+     0% {
+         transform: translateX(0);
+     }
+     30% {
+         transform: translateX(-10px) translateY(5px);
+     }
+     60% {
+         transform: translateX(-20px) translateY(-5px);
+     }
+     100% {
+         transform: translateX(0);
+     }
+ }
+ 
+ .enemy-malwareBot-attack {
+     animation: malware-bot-attack 0.7s ease-in-out;
+ }
+ 
+ @keyframes malware-bot-attack {
+     0% {
+         transform: translateX(0) rotate(0deg);
+     }
+     50% {
+         transform: translateX(-25px) rotate(-5deg);
+     }
+     100% {
+         transform: translateX(0) rotate(0deg);
+     }
+ }
+ 
+ .enemy-firewallGuardian-attack {
+     animation: firewall-guardian-attack 0.8s ease-in-out;
+ }
+ 
+ @keyframes firewall-guardian-attack {
+     0% {
+         transform: translateX(0) scale(1);
+     }
+     25% {
+         transform: translateX(-5px) scale(1.1);
+     }
+     50% {
+         transform: translateX(-30px) scale(1.05);
+     }
+     100% {
+         transform: translateX(0) scale(1);
+     }
+ }
+ 
+ .enemy-dataCorruptor-attack {
+     animation: data-corruptor-attack 0.9s ease-in-out;
+ }
+ 
+ @keyframes data-corruptor-attack {
+     0% {
+         transform: translateX(0);
+         filter: hue-rotate(0deg);
+     }
+     50% {
+         transform: translateX(-30px);
+         filter: hue-rotate(180deg) brightness(1.3);
+     }
+     100% {
+         transform: translateX(0);
+         filter: hue-rotate(0deg);
+     }
+ }
+ 
+ .enemy-systemAdmin-attack {
+     animation: system-admin-attack 1s ease-in-out;
+ }
+ 
+ @keyframes system-admin-attack {
+     0% {
+         transform: translateX(0) scale(1);
+         filter: brightness(1);
+     }
+     25% {
+         transform: translateX(-10px) scale(1.1);
+         filter: brightness(1.2) contrast(1.2);
+     }
+     50% {
+         transform: translateX(-35px) scale(1.15);
+         filter: brightness(1.5) contrast(1.5) hue-rotate(30deg);
+     }
+     75% {
+         transform: translateX(-20px) scale(1.05);
+         filter: brightness(1.2) contrast(1.2);
+     }
+     100% {
+         transform: translateX(0) scale(1);
+         filter: brightness(1);
+     }
+ }
+ 
+ /* Health regeneration visual effect */
+ .health-regen-effect {
+     position: absolute;
+     inset: 0;
+     background: radial-gradient(circle, rgba(57, 255, 20, 0.3) 0%, transparent 70%);
+     animation: pulse-regen 1s ease-in-out;
+ }
+ 
+ @keyframes pulse-regen {
+     0%, 100% {
+         opacity: 0;
+     }
+     50% {
+         opacity: 0.8;
+     }
+ }
+ 
+ /* Critical hit flash effect */
+ .critical-hit-flash {
+     position: absolute;
+     inset: 0;
+     background-color: white;
+     mix-blend-mode: overlay;
+     animation: critical-flash 0.4s ease-out;
+ }
+ 
+ @keyframes critical-flash {
+     0%, 100% {
+         opacity: 0;
+     }
+     50% {
+         opacity: 0.9;
+     }
+ }
+ 
+ /* Quirky victory dance animation */
+ .victory-dance {
+     animation: victory-dance 1.5s ease-in-out infinite;
+ }
+ 
+ @keyframes victory-dance {
+     0%, 100% {
+         transform: translateY(0);
+     }
+     25% {
+         transform: translateY(-10px) rotate(-5deg);
+     }
+     50% {
+         transform: translateY(0) rotate(0deg);
+     }
+     75% {
+         transform: translateY(-10px) rotate(5deg);
+     }
+ }
+ 
+ /* Add a glitch effect for data corruptor encounters */
+ .glitch-text {
+     position: relative;
+     animation: glitch-text 3s infinite;
+ }
+ 
+ .glitch-text::before,
+ .glitch-text::after {
+     content: attr(data-text);
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+ }
+ 
+ .glitch-text::before {
+     left: 2px;
+     text-shadow: -1px 0 #00FFFF;
+     animation: glitch-text-1 0.8s infinite;
+ }
+ 
+ .glitch-text::after {
+     left: -2px;
+     text-shadow: 1px 0 #FF7700;
+     animation: glitch-text-2 0.8s infinite;
+ }
+ 
+ @keyframes glitch-text-1 {
+     0%, 100% { transform: none; opacity: 1; }
+     50% { transform: skewX(-0.4deg); opacity: 0.8; }
+ }
+ 
+ @keyframes glitch-text-2 {
+     0%, 100% { transform: none; opacity: 0.9; }
+     50% { transform: skewX(0.4deg); opacity: 0.8; }
+ }
+ 
+ /* Floating UI elements for a more dynamic feel */
+ .float-ui {
+     animation: float-ui 4s ease-in-out infinite;
+ }
+ 
+ @keyframes float-ui {
+     0%, 100% {
+         transform: translateY(0);
+     }
+     50% {
+         transform: translateY(-5px);
+     }
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* Enhanced animation effects to add to globals.css */
+
+/* Digital rain animation for special backgrounds */
+.digital-rain {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 300%;
+     background: linear-gradient(0deg, transparent 0%, rgba(0, 255, 255, 0.2) 100%);
+     animation: rain 20s linear infinite;
+     background-image: repeating-linear-gradient(
+         0deg,
+         rgba(0, 255, 255, 0.1) 0%,
+         rgba(0, 255, 255, 0.1) 1px,
+         transparent 1px,
+         transparent 10px
+     );
+     background-size: 100% 10px;
+     opacity: 0.3;
+ }
+ 
+ @keyframes rain {
+     0% {
+         transform: translateY(-66.66%);
+     }
+     100% {
+         transform: translateY(0);
+     }
+ }
+ 
+ /* New animations for abilities */
+ .quantum-repair {
+     animation: quantum-repair 1s ease-in-out;
+ }
+ 
+ @keyframes quantum-repair {
+     0% {
+         transform: scale(1);
+         filter: brightness(1);
+     }
+     50% {
+         transform: scale(1.2);
+         filter: brightness(1.8) hue-rotate(180deg);
+     }
+     100% {
+         transform: scale(1);
+         filter: brightness(1);
+     }
+ }
+ 
+ /* Enhanced attack animations */
+ .aurora-attack-enhanced {
+     animation: attack-enhanced 0.8s ease-in-out;
+ }
+ 
+ @keyframes attack-enhanced {
+     0% {
+         transform: translateX(0);
+         filter: brightness(1);
+     }
+     20% {
+         transform: translateX(-15px) rotate(-5deg);
+         filter: brightness(1.2);
+     }
+     50% {
+         transform: translateX(40px) rotate(10deg);
+         filter: brightness(1.5) hue-rotate(30deg);
+     }
+     70% {
+         transform: translateX(20px);
+         filter: brightness(1.3);
+     }
+     100% {
+         transform: translateX(0);
+         filter: brightness(1);
+     }
+ }
+ 
+ /* Enemy animations per type */
+ .enemy-scriptKiddie-attack {
+     animation: script-kiddie-attack 0.7s ease-in-out;
+ }
+ 
+ @keyframes script-kiddie-attack {
+     0% {
+         transform: translateX(0);
+     }
+     30% {
+         transform: translateX(-10px) translateY(5px);
+     }
+     60% {
+         transform: translateX(-20px) translateY(-5px);
+     }
+     100% {
+         transform: translateX(0);
+     }
+ }
+ 
+ .enemy-malwareBot-attack {
+     animation: malware-bot-attack 0.7s ease-in-out;
+ }
+ 
+ @keyframes malware-bot-attack {
+     0% {
+         transform: translateX(0) rotate(0deg);
+     }
+     50% {
+         transform: translateX(-25px) rotate(-5deg);
+     }
+     100% {
+         transform: translateX(0) rotate(0deg);
+     }
+ }
+ 
+ .enemy-firewallGuardian-attack {
+     animation: firewall-guardian-attack 0.8s ease-in-out;
+ }
+ 
+ @keyframes firewall-guardian-attack {
+     0% {
+         transform: translateX(0) scale(1);
+     }
+     25% {
+         transform: translateX(-5px) scale(1.1);
+     }
+     50% {
+         transform: translateX(-30px) scale(1.05);
+     }
+     100% {
+         transform: translateX(0) scale(1);
+     }
+ }
+ 
+ .enemy-dataCorruptor-attack {
+     animation: data-corruptor-attack 0.9s ease-in-out;
+ }
+ 
+ @keyframes data-corruptor-attack {
+     0% {
+         transform: translateX(0);
+         filter: hue-rotate(0deg);
+     }
+     50% {
+         transform: translateX(-30px);
+         filter: hue-rotate(180deg) brightness(1.3);
+     }
+     100% {
+         transform: translateX(0);
+         filter: hue-rotate(0deg);
+     }
+ }
+ 
+ .enemy-systemAdmin-attack {
+     animation: system-admin-attack 1s ease-in-out;
+ }
+ 
+ @keyframes system-admin-attack {
+     0% {
+         transform: translateX(0) scale(1);
+         filter: brightness(1);
+     }
+     25% {
+         transform: translateX(-10px) scale(1.1);
+         filter: brightness(1.2) contrast(1.2);
+     }
+     50% {
+         transform: translateX(-35px) scale(1.15);
+         filter: brightness(1.5) contrast(1.5) hue-rotate(30deg);
+     }
+     75% {
+         transform: translateX(-20px) scale(1.05);
+         filter: brightness(1.2) contrast(1.2);
+     }
+     100% {
+         transform: translateX(0) scale(1);
+         filter: brightness(1);
+     }
+ }
+ 
+ /* Health regeneration visual effect */
+ .health-regen-effect {
+     position: absolute;
+     inset: 0;
+     background: radial-gradient(circle, rgba(57, 255, 20, 0.3) 0%, transparent 70%);
+     animation: pulse-regen 1s ease-in-out;
+ }
+ 
+ @keyframes pulse-regen {
+     0%, 100% {
+         opacity: 0;
+     }
+     50% {
+         opacity: 0.8;
+     }
+ }
+ 
+ /* Critical hit flash effect */
+ .critical-hit-flash {
+     position: absolute;
+     inset: 0;
+     background-color: white;
+     mix-blend-mode: overlay;
+     animation: critical-flash 0.4s ease-out;
+ }
+ 
+ @keyframes critical-flash {
+     0%, 100% {
+         opacity: 0;
+     }
+     50% {
+         opacity: 0.9;
+     }
+ }
+ 
+ /* Quirky victory dance animation */
+ .victory-dance {
+     animation: victory-dance 1.5s ease-in-out infinite;
+ }
+ 
+ @keyframes victory-dance {
+     0%, 100% {
+         transform: translateY(0);
+     }
+     25% {
+         transform: translateY(-10px) rotate(-5deg);
+     }
+     50% {
+         transform: translateY(0) rotate(0deg);
+     }
+     75% {
+         transform: translateY(-10px) rotate(5deg);
+     }
+ }
+ 
+ /* Add a glitch effect for data corruptor encounters */
+ .glitch-text {
+     position: relative;
+     animation: glitch-text 3s infinite;
+ }
+ 
+ .glitch-text::before,
+ .glitch-text::after {
+     content: attr(data-text);
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+ }
+ 
+ .glitch-text::before {
+     left: 2px;
+     text-shadow: -1px 0 #00FFFF;
+     animation: glitch-text-1 0.8s infinite;
+ }
+ 
+ .glitch-text::after {
+     left: -2px;
+     text-shadow: 1px 0 #FF7700;
+     animation: glitch-text-2 0.8s infinite;
+ }
+ 
+ @keyframes glitch-text-1 {
+     0%, 100% { transform: none; opacity: 1; }
+     50% { transform: skewX(-0.4deg); opacity: 0.8; }
+ }
+ 
+ @keyframes glitch-text-2 {
+     0%, 100% { transform: none; opacity: 0.9; }
+     50% { transform: skewX(0.4deg); opacity: 0.8; }
+ }
+ 
+ /* Floating UI elements for a more dynamic feel */
+ .float-ui {
+     animation: float-ui 4s ease-in-out infinite;
+ }
+ 
+ @keyframes float-ui {
+     0%, 100% {
+         transform: translateY(0);
+     }
+     50% {
+         transform: translateY(-5px);
+     }
+ }
