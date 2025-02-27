@@ -64,7 +64,46 @@ const useGameState = (player1Name = '', player2Name = '') => {
                return () => clearTimeout(progressionTimer);
           }
      }, [gameState.turnPhase]);
-     
+     useEffect(() => {
+     // Ensure effect resolution phase properly processes cooldowns
+     if (gameState.turnPhase === GAME_CONSTANTS.TURN_PHASES.EFFECT_RESOLUTION) {
+          console.log("Processing effect resolution phase");
+          
+          // Use a short delay to ensure animations complete
+          const effectTimer = setTimeout(() => {
+               setGameState(prevState => {
+                    console.log("Current cooldowns:", prevState.aurora.cooldowns);
+                    
+                    // Make a copy of cooldowns for safe manipulation
+                    const updatedCooldowns = { ...prevState.aurora.cooldowns };
+                    
+                    // Process cooldown reductions
+                    Object.keys(updatedCooldowns).forEach(ability => {
+                         if (updatedCooldowns[ability] > 0) {
+                              updatedCooldowns[ability]--;
+                              console.log(`Reduced cooldown for ${ability} to ${updatedCooldowns[ability]}`);
+                         }
+                    });
+                    
+                    return {
+                         ...prevState,
+                         turnPhase: GAME_CONSTANTS.TURN_PHASES.PLAYER1,
+                         aurora: {
+                              ...prevState.aurora,
+                              cooldowns: updatedCooldowns
+                         },
+                         battleLog: [
+                              ...prevState.battleLog,
+                              "Turn cycle completed. Cooldowns reduced."
+                         ]
+                    };
+               });
+          }, 1000);
+          
+          return () => clearTimeout(effectTimer);
+     }
+}, [gameState.turnPhase]);
+
      useEffect(() => {
           // Check if it's time to process enemy action
           if (gameState.turnPhase === GAME_CONSTANTS.TURN_PHASES.ENEMY &&
