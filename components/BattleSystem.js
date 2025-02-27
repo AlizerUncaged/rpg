@@ -34,14 +34,18 @@ const BattleSystem = ({
 
      // Check if action is on cooldown
 
-     const getActionCooldown = (actionId) => {
-          // Make sure aurora and cooldowns exists before checking
-          if (!aurora || !aurora.cooldowns) return 0;
-
-          // Find the cooldown by name
-          const cooldown = aurora.cooldowns[actionId];
-          return cooldown || 0;
-     };
+const getActionCooldown = (actionId) => {
+     // Ensure aurora and cooldowns are properly defined
+     if (!aurora || !aurora.cooldowns) return 0;
+     
+     // Find the cooldown for this specific ability
+     const cooldown = aurora.cooldowns[actionId] || 0;
+     
+     // Debug logging
+     console.log(`Checking cooldown for ${actionId}: ${cooldown}`);
+     
+     return cooldown;
+};
 
      // Handle player action selection
 
